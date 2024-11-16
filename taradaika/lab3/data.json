@@ -1,0 +1,19 @@
+{
+  "ports": [
+    {"id": 1, "coordinates": [54.3520, 18.6466]},
+    {"id": 2, "coordinates": [50.4546, 30.5238]}
+  ],
+  "ships": [
+    {"id": 1, "type": "lightweight", "current_port": 1, "fuel": 10000},
+    {"id": 2, "type": "heavy", "current_port": 1, "fuel": 15000},
+    {"id": 3, "type": "medium", "current_port": 1, "fuel": 12000}
+  ],
+  "containers": [
+    {"type": "basic", "max_weight": 5000, "max_items": 10, "items": [
+      {"type": "small", "id": 1, "weight": 100, "count": 5}
+    ]},
+    {"type": "heavy", "max_weight": 10000, "max_items": 5, "items": [
+      {"type": "heavy", "id": 2, "weight": 500, "count": 2}
+    ]}
+  ]
+}

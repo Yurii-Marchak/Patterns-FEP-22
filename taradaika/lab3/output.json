@@ -1,0 +1,115 @@
+{
+    "ports": [
+        {
+            "id": 1,
+            "coordinates": [
+                54.352,
+                18.6466
+            ],
+            "containers in port": [],
+            "ships": []
+        },
+        {
+            "id": 2,
+            "coordinates": [
+                50.4546,
+                30.5238
+            ],
+            "containers in port": [],
+            "ships": [
+                {
+                    "id": 1,
+                    "fuel": 9543.364066179634,
+                    "containers": [
+                        {
+                            "id": 1,
+                            "type": "BasicContainer",
+                            "max_weight": 5000,
+                            "max_items": 10,
+                            "items": [
+                                {
+                                    "id": 1,
+                                    "type": "SmallItem",
+                                    "weight": 100,
+                                    "count": 5
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "fuel": 11346.912529437071,
+                    "containers": []
+                },
+                {
+                    "id": 3,
+                    "fuel": 10630.092198538901,
+                    "containers": []
+                }
+            ]
+        }
+    ],
+    "ships": [
+        {
+            "id": 1,
+            "fuel": 9543.364066179634,
+            "containers": [
+                {
+                    "id": 1,
+                    "type": "BasicContainer",
+                    "max_weight": 5000,
+                    "max_items": 10,
+                    "items": [
+                        {
+                            "id": 1,
+                            "type": "SmallItem",
+                            "weight": 100,
+                            "count": 5
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "fuel": 11346.912529437071,
+            "containers": []
+        },
+        {
+            "id": 3,
+            "fuel": 10630.092198538901,
+            "containers": []
+        }
+    ],
+    "containers": [
+        {
+            "id": 1,
+            "type": "BasicContainer",
+            "max_weight": 5000,
+            "max_items": 10,
+            "items": [
+                {
+                    "id": 1,
+                    "type": "SmallItem",
+                    "weight": 100,
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "HeavyContainer",
+            "max_weight": 10000,
+            "max_items": 5,
+            "items": [
+                {
+                    "id": 2,
+                    "type": "HeavyItem",
+                    "weight": 500,
+                    "count": 2
+                }
+            ]
+        }
+    ]
+}
