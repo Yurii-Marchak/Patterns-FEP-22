@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports API Interface</title>
+    <link rel="stylesheet" href="frontend/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="api-interface">
+                <h2>Upcoming Games and Match Results</h2>
+                <div class="form-group">
+                    <label for="action">Choose Action:</label>
+                    <select id="action" onchange="toggleFields('action')">
+                        <option value="getEventsByKey">Get Events by Key</option>
+                        <option value="getScoresByTeam">Get Events Scores by Team</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sportKey">Sport Key:</label>
+                    <input type="text" id="sportKey" placeholder="Enter sport key">
+                </div>
+                <div class="form-group" id="teamField" style="display: none;">
+                    <label for="teamName">Team Name:</label>
+                    <input type="text" id="teamName" placeholder="Enter team name">
+                </div>
+                <button onclick="fetchSportsData()">Fetch Data</button>
+
+                <div id="result-container">
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="api-interface">
+                <h2>Sports Manage</h2>
+                <div class="form-group">
+                    <label for="action2">Choose Action:</label>
+                    <select id="action2" onchange="toggleFields2('action2')">
+                        <option value="getSport">Get Sport</option>
+                        <option value="getSportByGroup">Get Sport by Group</option>
+                        <option value="createSport">Create Sport</option>
+                        <option value="updateSport">Update Sport</option>
+                        <option value="deleteSport">Delete Sport</option>
+                    </select>
+                </div>
+                <div class="form-group" id="sportKey2Field" style="display: none;">
+                    <label for="sportKey2">Sport Key:</label>
+                    <input type="text" id="sportKey2" placeholder="Enter sport key" required>
+                </div>
+                
+                <div class="form-group" id="groupField2" style="display: none;">
+                    <label for="group2">Group:</label>
+                    <input type="text" id="group2" placeholder="Enter group" required>
+                </div>
+        
+                <div class="form-group" id="titleField2" style="display: none;">
+                    <label for="title2">Title:</label>
+                    <input type="text" id="title2" placeholder="Enter title" required>
+                </div>
+        
+                <div class="form-group" id="descriptionField2" style="display: none;">
+                    <label for="description2">Description:</label>
+                    <input type="text" id="description2" placeholder="Enter description" required>
+                </div>
+        
+                <div class="form-group" id="activeField2" style="display: none;">
+                    <label for="active2">Active:</label>
+                    <select id="active2">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+        
+                <div class="form-group" id="outrightsField2" style="display: none;">
+                    <label for="hasOutrights2">Has Outrights:</label>
+                    <select id="hasOutrights2">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+        
+                <button onclick="fetchSportsData2()">Submit</button>
+                
+                <div id="result-container2">
+                    <div id="result2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="frontend/script.js"></script>
+</body>
+</html>
