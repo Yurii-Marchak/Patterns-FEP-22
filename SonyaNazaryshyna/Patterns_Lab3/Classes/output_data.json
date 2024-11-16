@@ -1,0 +1,124 @@
+{
+    "items": [
+      {
+        "type": "small",
+        "weight": 10,
+        "count": 15
+      },
+      {
+        "type": "small",
+        "weight": 12,
+        "count": 5
+      },
+      {
+        "type": "heavy",
+        "weight": 19,
+        "count": 8
+      },
+      {
+        "type": "heavy",
+        "weight": 20,
+        "count": 7
+      },
+      {
+        "type": "refrigerator",
+        "weight": 12,
+        "count": 3
+      },
+      {
+        "type": "refrigerator",
+        "weight": 10,
+        "count": 5
+      },
+      {
+        "type": "liquid",
+        "weight": 13,
+        "count": 6
+      },
+      {
+        "type": "liquid",
+        "weight": 8,
+        "count": 3
+      },
+      {
+        "type": "heavy",
+        "weight": 17,
+        "count": 6
+      },
+      {
+        "type": "small",
+        "weight": 4,
+        "count": 9
+      }
+    ],
+
+    "port": [
+        {
+            "port_id": "port1",
+            "coordinates": [51.0, 4.4]
+        },
+        {
+            "port_id": "port2",
+            "coordinates": [33.7, -118.2]
+        },
+        {
+            "port_id": "port3",
+            "coordinates": [1.3, 103.8]
+        }
+
+    ],
+
+    "container": [
+        {
+            "weight": 2500,
+            "max_item": 5,
+            "container_type": "basic"
+        },
+        {
+            "weight": 3500,
+            "max_item": 7,
+            "container_type": "heavy"
+        },
+        {
+            "weight": 1500,
+            "max_item": 3,
+            "container_type": "basic"
+        },
+        {
+            "weight": 5500,
+            "max_item": 10,
+            "container_type": "heavy"
+        },
+        {
+            "weight": 2000,
+            "max_item": 4,
+            "container_type": "refrigerated"
+        },
+        {
+            "weight": 4000,
+            "max_item": 6,
+            "container_type": "liquid"
+        },
+        {
+            "weight": 3500,
+            "max_item": 7,
+            "container_type": "liquid"
+        }
+    ],
+
+    "ship": [
+        {
+            "type": "heavy",
+            "current_port": "port1"
+        },
+        {
+            "type": "medium",
+            "current_port": "port2"
+        },
+        {
+            "type": "light",
+            "current_port": "port3"
+        }
+    ]
+  }
+  

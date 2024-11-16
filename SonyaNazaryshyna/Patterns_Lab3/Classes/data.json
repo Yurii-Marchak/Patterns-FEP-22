@@ -1,0 +1,89 @@
+{
+    "ports": [
+        {
+            "Port ID": "port1",
+            "Coordinates": [
+                51.0,
+                4.4
+            ],
+            "Containers in the port": [
+                {
+                    "Container ID": "c4ae6810-b24b-4cac-b3c5-7765048f10b5",
+                    "Container type": "BasicContainer",
+                    "Items in the container": [
+                        {
+                            "Item ID: ": "87563de6-9c94-4f2c-af53-5d7e70387bbb",
+                            "Item type": "Heavy",
+                            "Weight: ": 19,
+                            "Count: ": 8
+                        }
+                    ]
+                }
+            ],
+            "List of ship": [
+                {
+                    "Ship ID: ": "e49e2f44-cd8e-4afb-a0a3-8cdc62dec519",
+                    "Fuel ": 35000,
+                    "Port_id": "port1",
+                    "Containers on the ship: ": [
+                        {
+                            "Container ID": "3e6ec989-532c-469f-8518-dd5b546006fb",
+                            "Container type": "BasicContainer",
+                            "Items in the container": [
+                                {
+                                    "Item ID: ": "456fef76-e707-4db1-b64b-778360e3a060",
+                                    "Item type": "Small",
+                                    "Weight: ": 10,
+                                    "Count: ": 15
+                                }
+                            ]
+                        },
+                        {
+                            "Container ID": "e996c67e-418a-459e-aaec-a52ca6d0a582",
+                            "Container type": "HeavyContainer",
+                            "Items in the container": [
+                                {
+                                    "Item ID: ": "8577ce95-9d86-420f-b973-e35ee5eb1cda",
+                                    "Item type": "Small",
+                                    "Weight: ": 12,
+                                    "Count: ": 5
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Port ID": "port2",
+            "Coordinates": [
+                33.7,
+                -118.2
+            ],
+            "Containers in the port": [],
+            "List of ship": [
+                {
+                    "Ship ID: ": "2a9dcb63-689e-43da-8e0f-ac73ae16a071",
+                    "Fuel ": 25000,
+                    "Port_id": "port2",
+                    "Containers on the ship: ": []
+                },
+                {
+                    "Ship ID: ": "ee3993b4-2082-4f5e-a6fe-79f42816172d",
+                    "Fuel ": 20200,
+                    "Port_id": "port2",
+                    "Containers on the ship: ": []
+                }
+            ]
+        },
+        {
+            "Port ID": "port3",
+            "Coordinates": [
+                1.3,
+                103.8
+            ],
+            "Containers in the port": [],
+            "List of ship": []
+        }
+    ]
+}
