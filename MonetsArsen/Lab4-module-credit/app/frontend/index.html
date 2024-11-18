@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports API UI</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        section { margin-bottom: 20px; }
+        input, textarea { margin-right: 10px; padding: 5px; width: 200px; }
+        button { padding: 5px 10px; cursor: pointer; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .result-container { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background-color: #fafafa; }
+        .result-header { font-weight: bold; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+<h1>Sports API UI</h1>
+
+<!-- Fetch All Sports -->
+<section>
+    <h2>Get All Sports</h2>
+    <button onclick="getSports()">Fetch Sports</button>
+    <div class="result-container" id="sportsResult"></div>
+</section>
+
+<!-- Get Sports Odds -->
+<section>
+    <h2>Get Sports Odds</h2>
+    <input type="text" id="oddsSport" placeholder="Sport (e.g. soccer)">
+    <input type="text" id="oddsRegion" placeholder="Region (e.g. uk)">
+    <button onclick="getSportsOdds()">Get Odds</button>
+    <div class="result-container" id="oddsResult"></div>
+</section>
+
+<!-- Get Sports Scores -->
+<section>
+    <h2>Get Sports Scores</h2>
+    <input type="text" id="scoresSport" placeholder="Sport (e.g. soccer)">
+    <button onclick="getSportsScores()">Get Scores</button>
+    <div class="result-container" id="scoresResult"></div>
+</section>
+
+<!-- Get Sports Events -->
+<section>
+    <h2>Get Sports Events</h2>
+    <input type="text" id="eventsSport" placeholder="Sport (e.g. soccer)">
+    <button onclick="getSportsEvents()">Get Events</button>
+    <div class="result-container" id="eventsResult"></div>
+</section>
+
+<!-- Create Sports Event -->
+<section>
+    <h2>Create Sports Event</h2>
+    <input type="text" id="createEventName" placeholder="Event Name">
+    <input type="text" id="createSportTitle" placeholder="Sport Title">
+    <input type="datetime-local" id="createCommenceTime" placeholder="Commence Time">
+    <input type="text" id="createHomeTeam" placeholder="Home Team">
+    <input type="text" id="createAwayTeam" placeholder="Away Team">
+    <button onclick="createSportEvent()">Create Event</button>
+    <div class="result-container" id="createResult"></div>
+</section>
+
+<!-- Update Sports Event -->
+<section>
+    <h2>Update Sports Event</h2>
+    <input type="text" id="updateEventName" placeholder="Event Name">
+    <input type="text" id="updateSportTitle" placeholder="New Sport Title">
+    <input type="datetime-local" id="updateCommenceTime" placeholder="New Commence Time">
+    <input type="text" id="updateHomeTeam" placeholder="New Home Team">
+    <input type="text" id="updateAwayTeam" placeholder="New Away Team">
+    <button onclick="updateSportEvent()">Update Event</button>
+    <div class="result-container" id="updateResult"></div>
+</section>
+
+<!-- Delete Sports Event -->
+<section>
+    <h2>Delete Sports Event</h2>
+    <input type="text" id="deleteEventName" placeholder="Event Name">
+    <button onclick="deleteSportEvent()">Delete Event</button>
+    <div class="result-container" id="deleteResult"></div>
+</section>
+
+<!-- Fetch Sports Events from Another API -->
+<section>
+    <h2>Fetch Sports Events from External API</h2>
+    <input type="text" id="externalSport" placeholder="Sport (e.g. soccer)">
+    <button onclick="fetchSportsFromAPI()">Fetch from External API</button>
+    <div class="result-container" id="externalResult"></div>
+</section>
+
+<script>
+    const apiUrl = "http://localhost:8000/sport";  // Update with your FastAPI URL
+
+    async function fetchData(endpoint, options = {}) {
+        const response = await fetch(endpoint, options);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Error response:", errorText);
+            throw new Error(errorText);
+        }
+        return await response.json();
+    }
+
+    function formatResult(data) {
+        return JSON.stringify(data, null, 2)
+            .replace(/([{}])/g, '$&\n') // Add new lines for braces
+            .replace(/\"([^(\")]+)\":/g,"$1:") // Remove quotes from keys
+            .replace(/\n/g, '<br>'); // Replace new lines with breaks for HTML
+    }
+
+    async function getSports() {
+        const resultArea = document.getElementById("sportsResult");
+        try {
+            const data = await fetchData(`${apiUrl}/`);
+            resultArea.innerHTML = `<div class="result-header">Available Sports:</div>${formatResult(data)}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function getSportsOdds() {
+        const sport = document.getElementById("oddsSport").value;
+        const region = document.getElementById("oddsRegion").value;
+        const resultArea = document.getElementById("oddsResult");
+        try {
+            const data = await fetchData(`${apiUrl}/odds?sport=${sport}&region=${region}`);
+            resultArea.innerHTML = `<div class="result-header">Odds:</div>${formatResult(data)}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function getSportsScores() {
+        const sport = document.getElementById("scoresSport").value;
+        const resultArea = document.getElementById("scoresResult");
+        try {
+            const data = await fetchData(`${apiUrl}/scores?sport=${sport}`);
+            resultArea.innerHTML = `<div class="result-header">Scores:</div>${formatResult(data)}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function getSportsEvents() {
+        const sport = document.getElementById("eventsSport").value;
+        const resultArea = document.getElementById("eventsResult");
+        try {
+            const data = await fetchData(`${apiUrl}/events?sport=${sport}`);
+            resultArea.innerHTML = `<div class="result-header">Events:</div>${formatResult(data)}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function createSportEvent() {
+        const event_name = document.getElementById("createEventName").value;
+        const sport_title = document.getElementById("createSportTitle").value;
+        const commence_time = document.getElementById("createCommenceTime").value;
+        const home_team = document.getElementById("createHomeTeam").value;
+        const away_team = document.getElementById("createAwayTeam").value;
+        const resultArea = document.getElementById("createResult");
+
+        try {
+            const data = await fetchData(`${apiUrl}/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ event_name, sport_title, commence_time, home_team, away_team })
+            });
+            resultArea.innerHTML = `<div class="result-header">Created Event:</div>${formatResult(data)}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function updateSportEvent() {
+        const event_name = document.getElementById("updateEventName").value;
+        const sport_title = document.getElementById("updateSportTitle").value;
+        const commence_time = document.getElementById("updateCommenceTime").value;
+        const home_team = document.getElementById("updateHomeTeam").value;
+        const away_team = document.getElementById("updateAwayTeam").value;
+        const resultArea = document.getElementById("updateResult");
+
+        try {
+            const data = await fetchData(`${apiUrl}/`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ event_name, sport_title, commence_time, home_team, away_team })
+            });
+            resultArea.innerHTML = `<div class="result-header">Updated Event:</div>${formatResult(data)}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function deleteSportEvent() {
+        const eventName = document.getElementById("deleteEventName").value;
+        const resultArea = document.getElementById("deleteResult");
+        try {
+            const data = await fetchData(`${apiUrl}/delete/?event_name=${eventName}`, {
+                method: 'DELETE'
+            });
+            resultArea.innerHTML = `<div class="result-header">Deleted Event:</div>${data}`;
+        } catch (error) {
+            resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+        }
+    }
+
+    async function fetchSportsFromAPI() {
+    const sport = document.getElementById("externalSport").value;
+    const resultArea = document.getElementById("externalResult");
+    try {
+        const response = await fetch(`${apiUrl}/from_another_api?sport=${sport}`, {
+            method: 'POST', // Change to POST method
+            headers: {
+                'Content-Type': 'application/json' // Set content type to JSON
+            },
+            body: JSON.stringify({ sport }) // Send the sport as JSON
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json(); // Parse the JSON response
+        resultArea.innerHTML = `<div class="result-header">Fetched Events:</div>${formatResult(data)}`;
+    } catch (error) {
+        resultArea.innerHTML = `<div class="result-header">Error:</div>${error.message}`;
+    }
+}
+</script>
+
+</body>
+</html>
