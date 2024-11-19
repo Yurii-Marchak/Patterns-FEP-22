@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Football Events</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Scheduled Football Events</h1>
+    <ul>
+        {% for event in events %}
+            <li>
+                <strong>{{ event.tournament }}:</strong> 
+                {{ event.home_team }} vs {{ event.away_team }}<br>
+                <span class="score">Score: {{ event.home_score }} - {{ event.away_score }}</span><br>
+                <strong>Slug:</strong> {{ event.slug }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

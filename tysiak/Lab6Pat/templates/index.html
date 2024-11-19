@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Control</title>
+    <style>
+        /* Загальні стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFB6B9, #F7C6D4, #F2D9F1);
+            color: #4B4B4B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #444;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 15px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .section button {
+            background-color: #FFB6B9;
+            color: #fff;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin: 5px;
+            min-width: 150px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .section button:hover {
+            background-color: #FF6B81;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section button:active {
+            background-color: #F76B8A;
+            transform: translateY(0);
+        }
+
+        /* Для кнопок відключення */
+        .section button.secondary {
+            background-color: #A8DADC;
+        }
+
+        .section button.secondary:hover {
+            background-color: #457B9D;
+        }
+
+        /* Поле вводу температури */
+        input[type="number"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #E2E2E2;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            background-color: #F9F9F9;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #FF6B81;
+            box-shadow: 0 0 10px rgba(255, 107, 129, 0.3);
+        }
+
+        /* Повідомлення */
+        #message {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #444;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        /* Адаптивний дизайн */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section button {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Home Control</h1>
+
+        <div class="section">
+            <h2>Lighting</h2>
+            <button onclick="turnOnLights()">Turn On Lights</button>
+            <button class="secondary" onclick="turnOffLights()">Turn Off Lights</button>
+        </div>
+
+        <div class="section">
+            <h2>Music</h2>
+            <button onclick="playMusic()">Play Music</button>
+            <button class="secondary" onclick="stopMusic()">Stop Music</button>
+        </div>
+
+        <div class="section">
+            <h2>Security</h2>
+            <button onclick="activateSecurity()">Activate Security</button>
+            <button class="secondary" onclick="deactivateSecurity()">Deactivate Security</button>
+        </div>
+
+        <div class="section">
+            <h2>Climate Control</h2>
+            <input type="number" id="temperature" placeholder="Set temperature">
+            <button onclick="setClimate()">Set Temperature</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script>
+        async function sendRequest(url, method = "GET") {
+            try {
+                const response = await fetch(url, { method });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                document.getElementById('message').innerText = data.message;
+            } catch (error) {
+                document.getElementById('message').innerText = 'Error: ' + error;
+            }
+        }
+
+        function turnOnLights() {
+            const url = `/lighting/start`;
+            sendRequest(url, "POST");
+        }
+
+        function turnOffLights() {
+            const url = `/lighting/stop`;
+            sendRequest(url, "POST");
+        }
+
+        function playMusic() {
+            const url = `/entertainment/play`;
+            sendRequest(url);
+        }
+
+        function stopMusic() {
+            const url = `/entertainment/stop`;
+            sendRequest(url);
+        }
+
+        function activateSecurity() {
+            const url = `/security/activate`;
+            sendRequest(url);
+        }
+
+        function deactivateSecurity() {
+            const url = `/security/deactivate`;
+            sendRequest(url);
+        }
+
+        function setClimate() {
+            const temperature = document.getElementById('temperature').value;
+            const url = `/climate/set?temperature=${temperature}`;
+            sendRequest(url);
+        }
+    </script>
+</body>
+</html>

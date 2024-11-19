@@ -1,0 +1,94 @@
+{
+    "ports": [
+        {
+            "id": 1,
+            "coordinates": [
+                46.48,
+                30.73
+            ],
+            "containers": [
+                {
+                    "id": 1,
+                    "weight": 1500,
+                    "type": "BasicContainer"
+                },
+                {
+                    "id": 3,
+                    "weight": 2500,
+                    "type": "BasicContainer"
+                },
+                {
+                    "id": 2,
+                    "weight": 2000,
+                    "type": "BasicContainer"
+                },
+                {
+                    "id": 4,
+                    "weight": 3000,
+                    "type": "BasicContainer"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "coordinates": [
+                38.37,
+                21.24
+            ],
+            "containers": [
+                {
+                    "id": 1,
+                    "weight": 1500,
+                    "type": "BasicContainer"
+                },
+                {
+                    "id": 2,
+                    "weight": 2000,
+                    "type": "BasicContainer"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "coordinates": [
+                38.91,
+                16.35
+            ],
+            "containers": [
+                {
+                    "id": 3,
+                    "weight": 2500,
+                    "type": "BasicContainer"
+                },
+                {
+                    "id": 4,
+                    "weight": 3000,
+                    "type": "BasicContainer"
+                }
+            ]
+        }
+    ],
+    "ships": [
+        {
+            "id": 101,
+            "fuel": 12620.267386610916,
+            "current_port": 2,
+            "containers": [],
+            "type": "LightWeightShip"
+        },
+        {
+            "id": 102,
+            "fuel": 13284.484937615995,
+            "current_port": 3,
+            "containers": [],
+            "type": "MediumShip"
+        },
+        {
+            "id": 103,
+            "fuel": 6348.407725583906,
+            "current_port": 1,
+            "containers": [],
+            "type": "HeavyShip"
+        }
+    ]
+}

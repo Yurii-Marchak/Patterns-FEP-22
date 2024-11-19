@@ -1,0 +1,122 @@
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+/* Головна секція */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+/* Список подій */
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+}
+
+li {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+li h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+li p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+li .score {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+li .time {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Кнопка для завантаження більше подій */
+button {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Медіа-запити для адаптивного дизайну */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    ul {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    li {
+        padding: 12px;
+    }
+
+    button {
+        width: 180px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    ul {
+        grid-template-columns: 1fr;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+    button {
+        width: 160px;
+        font-size: 0.8rem;
+    }
+}
