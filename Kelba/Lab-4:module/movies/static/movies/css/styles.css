@@ -1,0 +1,275 @@
+/* Загальні стилі */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Хедер */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #343a40;
+  color: #fff;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #ffc107;
+}
+
+/* Головний банер */
+#hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: url("/static/movies/img/288727.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0% 250%;
+  color: #fff;
+  
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+
+}
+
+
+#hero .btn {
+  background-color: #ffc107;
+  color: #343a40;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#hero .btn:hover {
+  background-color: #e0a800;
+}
+
+/* Розділ "Now Showing" */
+#now-showing {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+#now-showing .raw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#now-showing h2 {
+  font-size: 1.8rem;
+  color: #495057;
+}
+
+#add-movie-btn {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  align-self: flex-start; /* Розміщення кнопки ліворуч */
+}
+
+#add-movie-btn:hover {
+  background-color: #0056b3;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.movie-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.movie-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 220px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.movie-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.movie-genres {
+  color: #6c757d;
+  margin: 5px 0;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #343a40;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.modal-content .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Кнопка на мобільних */
+@media (max-width: 768px) {
+  #add-movie-btn {
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+}
