@@ -1,0 +1,58 @@
+{
+    "Port 1": {
+        "lat": 50.45,
+        "lon": 30.52,
+        "basic_container": [
+            5
+        ],
+        "heavy_container": [
+            3,
+            4
+        ],
+        "refrigerated_container": [
+            3
+        ],
+        "liquid_container": [
+            4
+        ],
+        "ships": {
+            "100": {
+                "fuel_left": 500,
+                "basic_container": [
+                    1
+                ],
+                "heavy_container": [
+                    2
+                ],
+                "refrigerated_container": [],
+                "liquid_container": []
+            }
+        }
+    },
+    "Port 2": {
+        "lat": 51.5,
+        "lon": -0.12,
+        "basic_container": [],
+        "heavy_container": [],
+        "refrigerated_container": [],
+        "liquid_container": [],
+        "ships": {
+            "101": {
+                "fuel_left": 1000.0,
+                "basic_container": [],
+                "heavy_container": [],
+                "refrigerated_container": [],
+                "liquid_container": []
+            }
+        }
+    },
+    "Port 3": {
+        "lat": 40.71,
+        "lon": -74.01,
+        "basic_container": [],
+        "heavy_container": [],
+        "refrigerated_container": [],
+        "liquid_container": [],
+        "ships": {}
+    }
+}

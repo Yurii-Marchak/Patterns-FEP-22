@@ -1,0 +1,119 @@
+{
+    "ports": [
+        {
+            "ID": 1,
+            "latitude": 50.45,
+            "longitude": 30.52
+        },
+        {
+            "ID": 2,
+            "latitude": 51.50,
+            "longitude": -0.12,
+            "containers": [
+                {
+                    "ID": 3,
+                    "type": "Refrigerated",
+                    "weight": 4500
+                },
+                {
+                    "ID": 4,
+                    "type": "Liquid",
+                    "weight": 4000
+                }
+            ]
+        },
+        {
+            "ID": 3,
+            "latitude": 40.71,
+            "longitude": -74.01
+        }
+    ],
+    "ships": [
+        {
+            "ID": 100,
+            "portID": 1,
+            "totalWeightCapacity": 20000,
+            "maxAllContainers": 50,
+            "maxHeavyContainers": 30,
+            "maxRefrigeratedContainers": 10,
+            "maxLiquidContainers": 10,
+            "fuelConsumptionPerKM": 10.5
+        },
+        {
+            "ID": 101,
+            "portID": 2,
+            "totalWeightCapacity": 30000,
+            "maxAllContainers": 40,
+            "maxHeavyContainers": 20,
+            "maxRefrigeratedContainers": 5,
+            "maxLiquidContainers": 5,
+            "fuelConsumptionPerKM": 8.7
+        }
+    ],
+    "containers": [
+        {
+            "ID": 1,
+            "type": "Basic",
+            "weight": 2500
+        },
+        {
+            "ID": 2,
+            "type": "Heavy",
+            "weight": 5000
+        },
+        {
+            "ID": 3,
+            "type": "Refrigerated",
+            "weight": 4500
+        },
+        {
+            "ID": 4,
+            "type": "Liquid",
+            "weight": 4000
+        },
+        {
+            "ID": 5,
+            "type": "Basic",
+            "weight": 1800
+        }
+    ],
+    "actions": [
+        {
+            "action": "load_container",
+            "shipID": 100,
+            "containerID": 1
+        },
+
+        {
+            "action": "load_container",
+            "shipID": 101,
+            "containerID": 1
+        },
+        {
+            "action": "load_container",
+            "shipID": 100,
+            "containerID": 2
+        },
+        {
+            "action": "refuel",
+            "shipID": 100,
+            "fuelAmount": 500
+        },
+        {
+            "action": "refuel",
+            "shipID": 101,
+            "fuelAmount": 1000
+        },
+        
+        {
+            "action": "sail",
+            "shipID": 101,
+            "destinationPortID": 2
+        },
+        {
+            "action": "sail",
+            "shipID": 100,
+            "destinationPortID": 2
+        }
+    ]
+}
