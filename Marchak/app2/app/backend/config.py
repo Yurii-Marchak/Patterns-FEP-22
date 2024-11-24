@@ -1,0 +1,13 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SPORTS_API_KEY = os.getenv("SPORTS_API_KEY")
+MONGODB_USERNAME = os.getenv("MONGO_INITDB_ROOT_USERNAME")
+MONGODB_PASSWORD = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
+MONGO_DATABASE = os.getenv("MONGO_INITDB_DATABASE")
+MONGODB_PORT = os.getenv("MONGODB_PORT")
+MONGODB_HOST = os.getenv("MONGODB_HOST")
+MONGODB_URL = f"mongodb://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@{MONGODB_HOST}:{MONGODB_PORT}/{MONGO_DATABASE}" \
+              f"?authSource=admin"
